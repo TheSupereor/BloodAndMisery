@@ -1,0 +1,23 @@
+{
+  "melee": {
+    "SkillType": "melee",
+    "SkillDamage": 60,
+    "SkillRadius": "N/A",
+    "SkillDamageDelayTime": "N/A",
+    "IRemoveDelayTime": "N/A"
+  },
+  "strMelee": {
+    "SkillType": "melee",
+    "SkillDamage": 100,
+    "SkillRadius": "N/A",
+    "SkillDamageDelayTime": "0.2",
+    "IRemoveDelayTime": 1
+  },
+  "AOE": {
+    "SkillType": "AOE",
+    "SkillDamage": 200,
+    "SkillRadius": 90,
+    "SkillDamageDelayTime": "0.3",
+    "IRemoveDelayTime": 5
+  }
+}

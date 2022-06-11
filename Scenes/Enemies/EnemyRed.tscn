@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Enemies/Enemy.tscn" type="PackedScene" id=1]
+
+[node name="EnemyRed" instance=ExtResource( 1 )]
+life = 300
+speed = 100
+damage = 40
+
+[node name="ColorRect" type="ColorRect" parent="." index="6"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0.870588, 0.192157, 0.270588, 0.454902 )

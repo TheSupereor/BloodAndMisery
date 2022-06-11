@@ -2,9 +2,10 @@ extends KinematicBody2D
 
 var direction = Vector2()
 var speed = 0
-const MAX_SPEED = 400
+const MAX_SPEED = 15
+const acceleration = 1000
 var velocity = Vector2()
-var look_to = ''
+var anim_direction = 'S'
 
 onready var _animated_sprite = $AnimatedSprite
 
@@ -13,50 +14,54 @@ onready var _animated_sprite = $AnimatedSprite
 func _ready():
 	set_physics_process(true) # Replace with function body.
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	playerAnimation()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	playerMovement(delta)
 	
-	direction = Vector2()
-
-	if Input.is_action_pressed("ui_left"):
-		direction.x = -1
-		_animated_sprite.play("RunOeste")
-		look_to = "Oeste"
-	elif Input.is_action_pressed("ui_right"):
-		direction.x = 1
-		_animated_sprite.play("RunE")
-		look_to = "Leste"
-		if Input.is_action_pressed("ui_up"):
-			direction.y = -1
-			_animated_sprite.play("RunNE")
-			look_to = "Nordeste"
-
-	elif Input.is_action_pressed("ui_up"):
-		direction.y = -1
-		_animated_sprite.play("RunNorte")
-		look_to = "Norte"		
-	elif Input.is_action_pressed("ui_down"):
-		direction.y = 1
-		_animated_sprite.play("RunS")
-		look_to = "Sul"	
-
-	if direction != Vector2():
-		speed = MAX_SPEED
-	else:
+	
+func playerMovement(delta):
+	direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+	direction.y = (int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))) / float(2)
+	if direction == Vector2(0,0):
 		speed = 0
-		match look_to:
-			"Oeste":
-				_animated_sprite.play("IdleOeste")
-			"Leste":
-				_animated_sprite.play("IdleE")
-			"Norte":
-				_animated_sprite.play("IdleNorte")
-			"Sul":
-				_animated_sprite.play("IdleS")
-			"Nordeste":
-				_animated_sprite.play("IdleNE")
+	else:
+		speed += acceleration * delta
+		if speed > MAX_SPEED: 
+			speed = MAX_SPEED
+		velocity = direction.normalized() * speed
+		move_and_collide(velocity)
+	
 
-	velocity = speed * direction.normalized() * delta
-
-	move_and_collide(velocity)
+func playerAnimation():
+	var anim_mode = 'Idle'
+	var animation
+	
+	match direction:
+		Vector2(-1,0):
+			anim_direction = 'W'
+		Vector2(1,0):
+			anim_direction = 'E'
+		Vector2(0,-0.5):
+			anim_direction = 'N'
+		Vector2(0,0.5):
+			anim_direction = 'S'
+		
+		Vector2(-1,-0.5):
+			anim_direction = 'NW'
+		Vector2(-1,0.5):
+			anim_direction = 'SW'
+		Vector2(1,-0.5):
+			anim_direction = 'NE'
+		Vector2(1,0.5):
+			anim_direction = 'SE'
+			
+	if direction != Vector2(0,0):
+		anim_mode = 'Run'
+	else:
+		anim_mode = 'Idle'
+	animation = anim_mode + anim_direction
+	_animated_sprite.play(animation)

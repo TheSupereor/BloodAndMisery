@@ -1,12 +1,88 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Resources/Dungeon.tres" type="TileSet" id=1]
 [ext_resource path="res://YSortProps/Obstacles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://YSortProps/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://YSortProps/ParedeQueb3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://YSortProps/ParedeQueb2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/_textures/skill.jpg" type="Texture" id=6]
+[ext_resource path="res://Assets/_textures/skillBar.jpg" type="Texture" id=7]
+[ext_resource path="res://GUI.gd" type="Script" id=8]
 
 [node name="Dungeon" type="Node2D"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Skillbar" type="Control" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+
+[node name="Background" type="TextureRect" parent="GUI/Skillbar"]
+margin_left = -202.0
+margin_top = -40.0
+margin_right = 298.0
+margin_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_clip_content = true
+texture = ExtResource( 7 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Skillbar/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = 10.0
+
+[node name="Skill1" type="TextureRect" parent="GUI/Skillbar/Background/HBoxContainer"]
+margin_top = 3.0
+margin_right = 60.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 4
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TextureButton" type="TextureButton" parent="GUI/Skillbar/Background/HBoxContainer/Skill1" groups=["Shortcuts"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Skill2" type="TextureRect" parent="GUI/Skillbar/Background/HBoxContainer"]
+margin_left = 64.0
+margin_top = 3.0
+margin_right = 124.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 4
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TextureButton" type="TextureButton" parent="GUI/Skillbar/Background/HBoxContainer/Skill2" groups=["Shortcuts"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Skill3" type="TextureRect" parent="GUI/Skillbar/Background/HBoxContainer"]
+margin_left = 128.0
+margin_top = 3.0
+margin_right = 188.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_vertical = 4
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TextureButton" type="TextureButton" parent="GUI/Skillbar/Background/HBoxContainer/Skill3" groups=["Shortcuts"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
 
 [node name="TileMap" type="TileMap" parent="."]
 mode = 1

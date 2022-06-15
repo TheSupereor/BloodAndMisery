@@ -1,18 +1,27 @@
 extends KinematicBody2D
 
+
+const MAX_SPEED = 450
+const ACCELERATION = 1000
+
 var direction = Vector2()
 var speed = 0
-const MAX_SPEED = 15
-const acceleration = 1000
 var velocity = Vector2()
 var anim_direction = 'S'
+var health = 200
 
 onready var _animated_sprite = $AnimatedSprite
+onready var life = $CanvasLayer/Life
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(true) # Replace with function body.
+
+
+func _input(event):
+	if Input.is_key_pressed(KEY_E):
+		take_damage(30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,11 +38,11 @@ func playerMovement(delta):
 	if direction == Vector2(0,0):
 		speed = 0
 	else:
-		speed += acceleration * delta
+		speed += ACCELERATION
 		if speed > MAX_SPEED: 
 			speed = MAX_SPEED
 		velocity = direction.normalized() * speed
-		move_and_collide(velocity)
+		move_and_slide(velocity)
 	
 
 func playerAnimation():
@@ -65,3 +74,14 @@ func playerAnimation():
 		anim_mode = 'Idle'
 	animation = anim_mode + anim_direction
 	_animated_sprite.play(animation)
+	
+
+func take_damage(damage):
+	health -= damage
+	if health <= 0:
+		die()
+	life.set_value(health)
+	
+	
+func die():
+	get_tree().quit()

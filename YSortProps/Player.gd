@@ -8,7 +8,16 @@ var direction = Vector2()
 var speed = 0
 var velocity = Vector2()
 var anim_direction = 'S'
+<<<<<<< Updated upstream
 var health = 200
+=======
+<<<<<<< Updated upstream
+var health = 200
+=======
+var can_attack = true
+var attacking = false
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 onready var _animated_sprite = $AnimatedSprite
 onready var life = $CanvasLayer/Life
@@ -26,6 +35,7 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	playerAnimation()
+	skillLoop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -43,7 +53,18 @@ func playerMovement(delta):
 			speed = MAX_SPEED
 		velocity = direction.normalized() * speed
 		move_and_slide(velocity)
+<<<<<<< Updated upstream
+=======
 	
+>>>>>>> Stashed changes
+	
+func skillLoop():
+	if Input.is_action_pressed("skill_1") and can_attack == true:
+		can_attack = false
+		attacking = true
+		var attack_direction = (get_angle_to(get_global_mouse_position())/3.14)*180
+		match DataImport.skill_data(selected_skill).SkillType:
+			
 
 func playerAnimation():
 	var anim_mode = 'Idle'

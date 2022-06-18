@@ -46,10 +46,6 @@ func leave_pursue(body: Node):
 	target = null
 
 
-func die():
-	queue_free()
-
-
 func Initiate_Attack(body):
 	if attack_timer.is_stopped():
 		print("Ataquei")

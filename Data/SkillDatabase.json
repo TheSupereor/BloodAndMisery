@@ -10,14 +10,14 @@
     "SkillType": "melee",
     "SkillDamage": 100,
     "SkillRadius": "N/A",
-    "SkillDamageDelayTime": "0.2",
-    "IRemoveDelayTime": 1
+    "SkillDamageDelayTime": "N/A",
+    "IRemoveDelayTime": "N/A"
   },
   "AOE": {
     "SkillType": "AOE",
     "SkillDamage": 200,
     "SkillRadius": 90,
-    "SkillDamageDelayTime": "0.3",
-    "IRemoveDelayTime": 5
+    "SkillDamageDelayTime": "0.2",
+    "IRemoveDelayTime": 0.5
   }
 }

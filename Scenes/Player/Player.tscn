@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://YSortProps/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Male_7_Run8.png" type="Texture" id=2]
@@ -88,58 +88,59 @@
 [ext_resource path="res://Assets/Male_7_Idle0.png" type="Texture" id=86]
 [ext_resource path="res://Assets/Male_6_Run7.png" type="Texture" id=87]
 [ext_resource path="res://Assets/Male_6_Run1.png" type="Texture" id=88]
+[ext_resource path="res://Prancheta 1.png" type="Texture" id=89]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 62 ) ],
-"loop": true,
-"name": "IdleW",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "IdleSE",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 78 ), ExtResource( 77 ), ExtResource( 60 ), ExtResource( 73 ), ExtResource( 75 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 49 ), ExtResource( 76 ) ],
-"loop": true,
-"name": "RunW",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 57 ), ExtResource( 85 ), ExtResource( 83 ), ExtResource( 53 ), ExtResource( 81 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "RunN",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 47 ) ],
-"loop": true,
-"name": "IdleS",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 58 ), ExtResource( 88 ), ExtResource( 54 ), ExtResource( 59 ), ExtResource( 74 ), ExtResource( 84 ), ExtResource( 82 ), ExtResource( 87 ), ExtResource( 79 ), ExtResource( 56 ) ],
 "loop": true,
 "name": "RunNW",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 86 ) ],
+"frames": [ ExtResource( 71 ), ExtResource( 45 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 38 ), ExtResource( 70 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": true,
-"name": "IdleN",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 64 ), ExtResource( 50 ), ExtResource( 80 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 51 ), ExtResource( 72 ), ExtResource( 52 ), ExtResource( 65 ), ExtResource( 66 ) ],
-"loop": true,
-"name": "RunSW",
+"name": "RunS",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "IdleE",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "IdleNE",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 71 ), ExtResource( 45 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 48 ), ExtResource( 38 ), ExtResource( 70 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"frames": [ ExtResource( 86 ) ],
 "loop": true,
-"name": "RunS",
+"name": "IdleN",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "RunNE",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "IdleSE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 85 ), ExtResource( 83 ), ExtResource( 53 ), ExtResource( 81 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "RunN",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 78 ), ExtResource( 77 ), ExtResource( 60 ), ExtResource( 73 ), ExtResource( 75 ), ExtResource( 61 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 49 ), ExtResource( 76 ) ],
+"loop": true,
+"name": "RunW",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "IdleS",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 36 ) ],
 "loop": true,
@@ -151,25 +152,25 @@ animations = [ {
 "name": "RunE",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 31 ) ],
-"loop": true,
-"name": "IdleE",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "RunNE",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 69 ) ],
 "loop": true,
 "name": "IdleNW",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 64 ), ExtResource( 50 ), ExtResource( 80 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 51 ), ExtResource( 72 ), ExtResource( 52 ), ExtResource( 65 ), ExtResource( 66 ) ],
+"loop": true,
+"name": "RunSW",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 21 ), ExtResource( 43 ), ExtResource( 39 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "RunSE",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 62 ) ],
+"loop": true,
+"name": "IdleW",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=6]
@@ -178,6 +179,46 @@ height = 42.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 100.0
+
+[sub_resource type="Animation" id=7]
+resource_name = "Attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 89 ), ExtResource( 89 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.835294, 0.74902, 0.74902, 1 )
@@ -207,13 +248,22 @@ animation = "IdleE"
 position = Vector2( 2, -17 )
 shape = SubResource( 6 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="meleeRange" type="Area2D" parent="."]
 position = Vector2( 0, -78 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meleeRange"]
 scale = Vector2( 1, 0.7 )
 shape = SubResource( 2 )
 disabled = true
+
+[node name="Sprite" type="Sprite" parent="meleeRange"]
+visible = false
+position = Vector2( -1, -1 )
+scale = Vector2( 0.344712, 0.179808 )
+texture = ExtResource( 89 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="meleeRange"]
+anims/Attack = SubResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -226,3 +276,5 @@ theme = SubResource( 5 )
 max_value = 200.0
 value = 200.0
 percent_visible = false
+
+[connection signal="body_entered" from="meleeRange" to="." method="_on_meleeRange_body_entered"]

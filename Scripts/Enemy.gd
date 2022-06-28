@@ -8,10 +8,13 @@ export var damage : int = 20
 
 var target = null
 var direction = Vector2.ZERO
+var current_hp
 
 onready var attack_area = $AttackArea
 onready var attack_timer = $AttackTimer
 
+func ready():
+	current_hp = life
 
 func _physics_process(delta):
 	if not target == null:
@@ -57,3 +60,14 @@ func _Initiate_Attack():
 	if attack_timer.is_stopped():
 		print("Ataquei")
 		attack_timer.start()
+
+func onHit(damage):
+	current_hp -= damage
+	get_node("HPBar").value = int((float(current_hp) / life) * 100)
+	if current_hp <= 0:
+		onDeath()
+	pass
+	
+func onDeath():
+	get_node("CollisionPoly").set_deferred("disabled", true)
+	get_tree().quit()

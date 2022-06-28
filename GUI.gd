@@ -18,3 +18,7 @@ func LoadShortcuts():
 	for shortcut in loaded_skills.keys():
 		var skill_icon = load("res://Assets/_Skills/" + loaded_skills[shortcut]+ "_icon.png")
 		get_node(shortcuts_path + shortcut + "/TextureButton").set_normal_texture(skill_icon)
+
+func selectShortcut(shortcut):
+	get_parent().get_node("YSort/Player").selected_skill = loaded_skills[shortcut]
+	

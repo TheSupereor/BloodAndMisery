@@ -196,24 +196,12 @@ tracks/0/keys = {
 "values": [ true, false, false, true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:texture")
+tracks/1/path = NodePath("Sprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 89 ), ExtResource( 89 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
@@ -258,6 +246,7 @@ disabled = true
 
 [node name="Sprite" type="Sprite" parent="meleeRange"]
 visible = false
+light_mask = 5
 position = Vector2( -1, -1 )
 scale = Vector2( 0.344712, 0.179808 )
 texture = ExtResource( 89 )

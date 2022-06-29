@@ -94,6 +94,12 @@ func playerAnimation():
 	else:
 		anim_mode = 'Idle'
 	animation = anim_mode + anim_direction
+	
+	if melee == true:
+		get_node("meleeRange/AnimationPlayer").play("Attack")
+		print('aa')
+		melee = false
+		
 	_animated_sprite.play(animation)
 	
 

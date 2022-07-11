@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/SaveScore.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+scores = [ 1500, 1426, 677, 627, 625, 624, 624, 623, 622, 618 ]

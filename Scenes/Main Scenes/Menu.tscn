@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Sound/mixkit-small-hit-in-a-game-2072.wav" type="AudioStream" id=3]
+
+[node name="Menu" type="Node"]
+script = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 492.0
+margin_top = 284.0
+margin_right = 532.0
+margin_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+input_pass_on_modal_close_click = false
+theme = ExtResource( 1 )
+text = "Iniciar"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 40.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 1 )
+text = "Sair"
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="button_up" from="CenterContainer/VBoxContainer/Button" to="." method="button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/Button" to="." method="game_start"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/Button2" to="." method="button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/Button2" to="." method="quit"]

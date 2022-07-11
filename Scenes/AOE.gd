@@ -26,6 +26,6 @@ func AOEAttack():
 	yield(get_tree().create_timer(damage_delay), "timeout")
 	var targets = get_overlapping_bodies()
 	for target in targets:
-		target.onHit(damage)
+		target.take_damage(damage)
 	yield(get_tree().create_timer(remove_delay_time), "timeout")
 	self.queue_free()

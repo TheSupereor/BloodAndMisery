@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Tutorial.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Tutorial/Prancheta 1.png" type="Texture" id=3]
+
+[node name="Tutorial" type="Node"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 868.0
+margin_top = 543.0
+margin_right = 951.0
+margin_bottom = 563.0
+theme = ExtResource( 1 )
+text = "Iniciar jogo"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 760.0
+margin_top = 543.0
+margin_right = 843.0
+margin_bottom = 563.0
+theme = ExtResource( 1 )
+text = "Voltar"
+
+[connection signal="button_up" from="Button" to="." method="start_game"]
+[connection signal="button_up" from="Button2" to="." method="back_to_menu"]

@@ -6,22 +6,36 @@ export var life: int = 100
 export var speed : int = 200
 export var damage : int = 20
 
+enum states {DEFAULT, PURSUE, ATTACKING, HITTING}
+
 var target = null
 var direction = Vector2.ZERO
-var current_hp
+var max_life
+var state = states.DEFAULT
 
+onready var attack_animation = $AnimationPlayer
+onready var life_bar = $HPBar
 onready var attack_area = $AttackArea
-onready var attack_timer = $AttackTimer
+onready var attack_audio = $EnemyAttackAudio
+onready var hit_audio = $EnemyHitAudio
 
-func ready():
-	current_hp = life
+signal enemy_killed
+
+
+func _ready():
+	var spawn_controller = get_tree().get_nodes_in_group("Controllers")[0]
+	connect("enemy_killed", spawn_controller, "enemy_killed")
+	max_life = life
+	life_bar.max_value = max_life
+	life_bar.value = life
+
 
 func _physics_process(delta):
-	if not target == null:
-		direction = direction_8_ways()
-		attack_area.position = (direction * 64)
-		if not position.distance_to(target.position) < 100:
-			move_and_slide(direction * speed)
+	if target == null:
+		return
+	direction = direction_8_ways()
+	if state == states.DEFAULT or state == states.PURSUE:
+		move_and_slide(direction * speed)
 
 
 func direction_8_ways():
@@ -43,31 +57,43 @@ func direction_8_ways():
 
 func pursue_player(body : Node):
 	target = body
+	state = states.PURSUE
 
 
 func leave_pursue(body: Node):
 	target = null
+	state = states.DEFAULT
 
 
-func Initiate_Attack(body):
-	if attack_timer.is_stopped():
-		print("Ataquei")
-		attack_timer.start()
-	#target.take_damage(damage)
+func initiate_attack(body):
+	state = states.ATTACKING
+	attack_area.position = direction * 64
+	attack_audio.play()
+	attack_animation.play("Attack")
 
 
-func _Initiate_Attack():
-	if attack_timer.is_stopped():
-		print("Ataquei")
-		attack_timer.start()
-
-func onHit(damage):
-	current_hp -= damage
-	get_node("HPBar").value = int((float(current_hp) / life) * 100)
-	if current_hp <= 0:
-		onDeath()
-	pass
+func leave_attack_range(body):
+	state = states.PURSUE
 	
-func onDeath():
-	get_node("CollisionPoly").set_deferred("disabled", true)
-	get_tree().quit()
+
+func deal_damage(body):
+	body.take_damage(damage)
+
+
+func take_damage(damage):
+	life -= damage
+	life_bar.value = life
+	hit_audio.play()
+	if life <= 0:
+		die()
+
+
+func die():
+	emit_signal("enemy_killed")	
+	queue_free()
+
+
+func attack_finished(anim_name):
+	attack_area.position = Vector2.ZERO
+	if state == states.ATTACKING:
+		initiate_attack(target)

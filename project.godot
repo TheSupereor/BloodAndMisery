@@ -21,12 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="BloodAndMisery"
-run/main_scene="res://CenaTesteDungeon.tscn"
+run/main_scene="res://Scenes/Main Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 DataImport="*res://Data/DataImport.gd"
+Score="*res://Data/score.gd"
 
 [editor_plugins]
 

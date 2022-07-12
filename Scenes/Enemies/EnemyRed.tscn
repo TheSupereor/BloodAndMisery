@@ -5,7 +5,7 @@
 [node name="EnemyRed" instance=ExtResource( 1 )]
 life = 300
 speed = 100
-damage = 40
+damage = 100
 
 [node name="ColorRect" type="ColorRect" parent="." index="6"]
 margin_left = -32.0

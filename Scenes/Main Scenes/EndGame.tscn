@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/EndGame.gd" type="Script" id=2]
+[ext_resource path="res://Sound/mixkit-small-hit-in-a-game-2072.wav" type="AudioStream" id=3]
+
+[node name="EndGame" type="Node"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+margin_left = 441.0
+margin_top = 266.0
+margin_right = 583.0
+margin_bottom = 334.0
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_right = 109.0
+margin_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+theme = ExtResource( 1 )
+text = "Pontuação atual: "
+
+[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 142.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+theme = ExtResource( 1 )
+text = "Melhores Pontuações:"
+
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 116.0
+margin_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+theme = ExtResource( 1 )
+text = "Tentar novamente"
+
+[node name="Button2" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+margin_top = 54.0
+margin_right = 23.0
+margin_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+theme = ExtResource( 1 )
+text = "Sair"
+
+[node name="ButtonAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="button_up" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="." method="restart_game"]
+[connection signal="button_up" from="CanvasLayer/CenterContainer/VBoxContainer/Button" to="." method="button_sound_start"]
+[connection signal="button_up" from="CanvasLayer/CenterContainer/VBoxContainer/Button2" to="." method="close_game"]
+[connection signal="button_up" from="CanvasLayer/CenterContainer/VBoxContainer/Button2" to="." method="button_sound_start"]
